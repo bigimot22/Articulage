@@ -19,6 +19,7 @@
 		2919B8B127F19E6E00B957C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		2919B8B327F19E7000B957C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2919B8B627F19E7000B957C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		2919B8BD27F19F1400B957C8 /* ArticulageAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ArticulageAPI; path = ../ArticulageAPI; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +36,7 @@
 		2919B8A327F19E6E00B957C8 = {
 			isa = PBXGroup;
 			children = (
+				2919B8BD27F19F1400B957C8 /* ArticulageAPI */,
 				2919B8AE27F19E6E00B957C8 /* Articulage */,
 				2919B8AD27F19E6E00B957C8 /* Products */,
 			);
