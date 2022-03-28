@@ -11,6 +11,7 @@
 		2919B8B227F19E6E00B957C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8B127F19E6E00B957C8 /* ContentView.swift */; };
 		2919B8B427F19E7000B957C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919B8B327F19E7000B957C8 /* Assets.xcassets */; };
 		2919B8B727F19E7000B957C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919B8B627F19E7000B957C8 /* Preview Assets.xcassets */; };
+		2919B8C027F1A40800B957C8 /* ArtUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2919B8BF27F1A40800B957C8 /* ArtUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2919B8C027F1A40800B957C8 /* ArtUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -39,6 +41,7 @@
 				2919B8BD27F19F1400B957C8 /* ArticulageAPI */,
 				2919B8AE27F19E6E00B957C8 /* Articulage */,
 				2919B8AD27F19E6E00B957C8 /* Products */,
+				2919B8BE27F1A40800B957C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -69,6 +72,13 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		2919B8BE27F1A40800B957C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,6 +95,9 @@
 			dependencies = (
 			);
 			name = Articulage;
+			packageProductDependencies = (
+				2919B8BF27F1A40800B957C8 /* ArtUI */,
+			);
 			productName = Articulage;
 			productReference = 2919B8AC27F19E6E00B957C8 /* Articulage.app */;
 			productType = "com.apple.product-type.application";
@@ -343,6 +356,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2919B8BF27F1A40800B957C8 /* ArtUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = ArtUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2919B8A427F19E6E00B957C8 /* Project object */;
 }

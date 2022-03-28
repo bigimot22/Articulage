@@ -6,11 +6,15 @@
 //
 
 import SwiftUI
+import ArtUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+      Color.Background.accent
+        .overlay(
+          Text("Hello!")
+              .padding()
+        )
     }
 }
 
