@@ -8,7 +8,8 @@ let package = Package(
     platforms: [.iOS(.v15)],
     products: [
         .library(name: "ArtUI", targets: ["ArtUI"]),
-        .library(name: "ArtNetwork", targets: ["ArtNetwork"])
+        .library(name: "ArtNetwork", targets: ["ArtNetwork"]),
+        .library(name: "Utilities", targets: ["Utilities"])
     ],
     dependencies: [],
     targets: [
@@ -17,6 +18,9 @@ let package = Package(
             dependencies: []),
         .target(
             name: "ArtNetwork",
+            dependencies: []),
+        .target(
+            name: "Utilities",
             dependencies: [])
     ]
 )

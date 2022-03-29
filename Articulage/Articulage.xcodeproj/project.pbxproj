@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2919B8B027F19E6E00B957C8 /* ArticulageApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8AF27F19E6E00B957C8 /* ArticulageApp.swift */; };
-		2919B8B227F19E6E00B957C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8B127F19E6E00B957C8 /* ContentView.swift */; };
+		2919B8B227F19E6E00B957C8 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8B127F19E6E00B957C8 /* HomeScreen.swift */; };
 		2919B8B427F19E7000B957C8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919B8B327F19E7000B957C8 /* Assets.xcassets */; };
 		2919B8B727F19E7000B957C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919B8B627F19E7000B957C8 /* Preview Assets.xcassets */; };
 		2919B8C027F1A40800B957C8 /* ArtUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2919B8BF27F1A40800B957C8 /* ArtUI */; };
@@ -17,18 +17,27 @@
 		2919B8C827F3108B00B957C8 /* Artwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8C727F3108B00B957C8 /* Artwork.swift */; };
 		2919B8CA27F3110400B957C8 /* ArtResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8C927F3110400B957C8 /* ArtResponse.swift */; };
 		2919B8CC27F312C800B957C8 /* ArtEndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8CB27F312C800B957C8 /* ArtEndPoint.swift */; };
+		2919B8CE27F329BC00B957C8 /* Utilities in Frameworks */ = {isa = PBXBuildFile; productRef = 2919B8CD27F329BC00B957C8 /* Utilities */; };
+		2919B8D027F32B6700B957C8 /* ArtworkImageSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8CF27F32B6700B957C8 /* ArtworkImageSize.swift */; };
+		2919B8D227F32DE400B957C8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8D127F32DE300B957C8 /* HomeViewModel.swift */; };
+		2919B8D427F32E7800B957C8 /* ArtThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8D327F32E7800B957C8 /* ArtThumbView.swift */; };
+		2919B8D627F3357000B957C8 /* ArtListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8D527F3357000B957C8 /* ArtListCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2919B8AC27F19E6E00B957C8 /* Articulage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Articulage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2919B8AF27F19E6E00B957C8 /* ArticulageApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticulageApp.swift; sourceTree = "<group>"; };
-		2919B8B127F19E6E00B957C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		2919B8B127F19E6E00B957C8 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 		2919B8B327F19E7000B957C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2919B8B627F19E7000B957C8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2919B8BD27F19F1400B957C8 /* ArticulageAPI */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = ArticulageAPI; path = ../ArticulageAPI; sourceTree = "<group>"; };
 		2919B8C727F3108B00B957C8 /* Artwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artwork.swift; sourceTree = "<group>"; };
 		2919B8C927F3110400B957C8 /* ArtResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtResponse.swift; sourceTree = "<group>"; };
 		2919B8CB27F312C800B957C8 /* ArtEndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtEndPoint.swift; sourceTree = "<group>"; };
+		2919B8CF27F32B6700B957C8 /* ArtworkImageSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtworkImageSize.swift; sourceTree = "<group>"; };
+		2919B8D127F32DE300B957C8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		2919B8D327F32E7800B957C8 /* ArtThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtThumbView.swift; sourceTree = "<group>"; };
+		2919B8D527F3357000B957C8 /* ArtListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +46,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2919B8C527F2FE0600B957C8 /* SDWebImageSwiftUI in Frameworks */,
+				2919B8CE27F329BC00B957C8 /* Utilities in Frameworks */,
 				2919B8C027F1A40800B957C8 /* ArtUI in Frameworks */,
 				2919B8C227F1A99200B957C8 /* ArtNetwork in Frameworks */,
 			);
@@ -67,9 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				2919B8AF27F19E6E00B957C8 /* ArticulageApp.swift */,
+				2919B8DA27F33B0800B957C8 /* Resources */,
 				2919B8C627F3107300B957C8 /* Models */,
-				2919B8B127F19E6E00B957C8 /* ContentView.swift */,
-				2919B8B327F19E7000B957C8 /* Assets.xcassets */,
+				2919B8D927F33A6600B957C8 /* Features */,
 				2919B8B527F19E7000B957C8 /* Preview Content */,
 			);
 			path = Articulage;
@@ -94,10 +104,46 @@
 			isa = PBXGroup;
 			children = (
 				2919B8C727F3108B00B957C8 /* Artwork.swift */,
+				2919B8CF27F32B6700B957C8 /* ArtworkImageSize.swift */,
 				2919B8C927F3110400B957C8 /* ArtResponse.swift */,
 				2919B8CB27F312C800B957C8 /* ArtEndPoint.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2919B8D727F339B300B957C8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				2919B8D127F32DE300B957C8 /* HomeViewModel.swift */,
+				2919B8B127F19E6E00B957C8 /* HomeScreen.swift */,
+				2919B8D527F3357000B957C8 /* ArtListCard.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		2919B8D827F33A0000B957C8 /* Reusable Views */ = {
+			isa = PBXGroup;
+			children = (
+				2919B8D327F32E7800B957C8 /* ArtThumbView.swift */,
+			);
+			path = "Reusable Views";
+			sourceTree = "<group>";
+		};
+		2919B8D927F33A6600B957C8 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				2919B8D727F339B300B957C8 /* Home */,
+				2919B8D827F33A0000B957C8 /* Reusable Views */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		2919B8DA27F33B0800B957C8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2919B8B327F19E7000B957C8 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -120,6 +166,7 @@
 				2919B8BF27F1A40800B957C8 /* ArtUI */,
 				2919B8C127F1A99200B957C8 /* ArtNetwork */,
 				2919B8C427F2FE0600B957C8 /* SDWebImageSwiftUI */,
+				2919B8CD27F329BC00B957C8 /* Utilities */,
 			);
 			productName = Articulage;
 			productReference = 2919B8AC27F19E6E00B957C8 /* Articulage.app */;
@@ -178,11 +225,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2919B8B227F19E6E00B957C8 /* ContentView.swift in Sources */,
+				2919B8B227F19E6E00B957C8 /* HomeScreen.swift in Sources */,
 				2919B8C827F3108B00B957C8 /* Artwork.swift in Sources */,
+				2919B8D227F32DE400B957C8 /* HomeViewModel.swift in Sources */,
 				2919B8CA27F3110400B957C8 /* ArtResponse.swift in Sources */,
 				2919B8CC27F312C800B957C8 /* ArtEndPoint.swift in Sources */,
 				2919B8B027F19E6E00B957C8 /* ArticulageApp.swift in Sources */,
+				2919B8D627F3357000B957C8 /* ArtListCard.swift in Sources */,
+				2919B8D027F32B6700B957C8 /* ArtworkImageSize.swift in Sources */,
+				2919B8D427F32E7800B957C8 /* ArtThumbView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -410,6 +461,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 2919B8C327F2FE0600B957C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
+		};
+		2919B8CD27F329BC00B957C8 /* Utilities */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Utilities;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

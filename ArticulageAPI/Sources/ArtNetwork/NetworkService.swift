@@ -7,21 +7,6 @@
 
 import Foundation
 
-@inlinable func log(_ text: String, terminator: String? = nil) {
-#if DEBUG
-  terminator == nil ? print(text) : print(text, terminator: terminator!)
-#endif
-}
-
-func log(_ objects: Any...) -> () {
-#if DEBUG
-  log(objects.map{"\($0)"}.joined(separator: " "))
-#endif
-}
-
-
-
-
 public protocol Networkable {
   func fetch<T: Decodable>(_ modelType: T.Type, from endpoint: EndPoint, completion: @escaping (Result<T, RequestError>) -> Void)
 }
@@ -34,7 +19,6 @@ public final class NetworkService: Networkable {
   }
   
   public func fetch<T: Decodable>(_ modelType: T.Type, from endpoint: EndPoint, completion: @escaping (Result<T, RequestError>) -> Void) {
-    log("EndPoint URL:", endpoint.url)
     let method = RequestMethod.get
     var request = URLRequest(url: endpoint.url)
     request.httpMethod = method.rawValue
