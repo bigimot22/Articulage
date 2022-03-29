@@ -16,8 +16,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 <p align="center">
-<img src="./Screenshots/articulage-showcase 1.png" height="500"/>
-<img src="./Screenshots/articulage-showcase 2.png" height="500"/>
+<img src="./Screenshots/articulage-showcase-light.png" height="500"/>
+<img src="./Screenshots/articulage-showcase-dark.png" height="500"/>
 </p>
 
 This is the source code for **Articulage**, a project to demonstrate separating an app into modules, using Swift Packages, which can be built and worked on in isolation, without changing the main target. It's a promising approach, especially for medium-sized teams, and can speed up development and collaboration. 
