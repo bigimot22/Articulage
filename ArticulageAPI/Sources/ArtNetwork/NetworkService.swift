@@ -8,15 +8,15 @@
 import Foundation
 
 @inlinable func log(_ text: String, terminator: String? = nil) {
-    #if DEBUG
-        terminator == nil ? print(text) : print(text, terminator: terminator!)
-    #endif
+#if DEBUG
+  terminator == nil ? print(text) : print(text, terminator: terminator!)
+#endif
 }
 
 func log(_ objects: Any...) -> () {
-    #if DEBUG
-        log(objects.map{"\($0)"}.joined(separator: " "))
-    #endif
+#if DEBUG
+  log(objects.map{"\($0)"}.joined(separator: " "))
+#endif
 }
 
 
@@ -31,8 +31,8 @@ public final class NetworkService: Networkable {
   let session: URLSession
   
   public init(urlSession: URLSession = .shared) {
-          self.session = urlSession
-      }
+    self.session = urlSession
+  }
   
   public func fetchSample() {
     print("👀 fetched items", Date())

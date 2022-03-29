@@ -13,6 +13,7 @@
 		2919B8B727F19E7000B957C8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2919B8B627F19E7000B957C8 /* Preview Assets.xcassets */; };
 		2919B8C027F1A40800B957C8 /* ArtUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2919B8BF27F1A40800B957C8 /* ArtUI */; };
 		2919B8C227F1A99200B957C8 /* ArtNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 2919B8C127F1A99200B957C8 /* ArtNetwork */; };
+		2919B8C527F2FE0600B957C8 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = 2919B8C427F2FE0600B957C8 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2919B8C527F2FE0600B957C8 /* SDWebImageSwiftUI in Frameworks */,
 				2919B8C027F1A40800B957C8 /* ArtUI in Frameworks */,
 				2919B8C227F1A99200B957C8 /* ArtNetwork in Frameworks */,
 			);
@@ -100,6 +102,7 @@
 			packageProductDependencies = (
 				2919B8BF27F1A40800B957C8 /* ArtUI */,
 				2919B8C127F1A99200B957C8 /* ArtNetwork */,
+				2919B8C427F2FE0600B957C8 /* SDWebImageSwiftUI */,
 			);
 			productName = Articulage;
 			productReference = 2919B8AC27F19E6E00B957C8 /* Articulage.app */;
@@ -129,6 +132,9 @@
 				Base,
 			);
 			mainGroup = 2919B8A327F19E6E00B957C8;
+			packageReferences = (
+				2919B8C327F2FE0600B957C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+			);
 			productRefGroup = 2919B8AD27F19E6E00B957C8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -360,6 +366,17 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCRemoteSwiftPackageReference section */
+		2919B8C327F2FE0600B957C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
 /* Begin XCSwiftPackageProductDependency section */
 		2919B8BF27F1A40800B957C8 /* ArtUI */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -368,6 +385,11 @@
 		2919B8C127F1A99200B957C8 /* ArtNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = ArtNetwork;
+		};
+		2919B8C427F2FE0600B957C8 /* SDWebImageSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2919B8C327F2FE0600B957C8 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

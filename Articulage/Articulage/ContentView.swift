@@ -10,10 +10,11 @@ import ArtUI
 
 import ArtNetwork
 final class HomeViewModel: ObservableObject {
-  @Published private(set) var items = ["uno", "dos"]
   @Published private(set) var artworks: [Artwork] = []
+  @Published private(set) var  loading = false
   
   private var service: Networkable
+  private var resourcePath: ResourcePath?
   
   init(service: Networkable = NetworkService()) {
     self.service = service
@@ -21,17 +22,31 @@ final class HomeViewModel: ObservableObject {
     getArtworks()
   }
   
+  func reloadArtworks() {
+    loading = true
+    DispatchQueue.main.asyncAfter(deadline: .now() + 0.7) {
+      self.getArtworks()
+    }
+  }
+  
   func getArtworks() {
+    loading = true
     service.fetch(ArtResponse.self, from: .artworks) { [weak self] result in
       switch result {
       case .success(let artResponse):
-        print("👀 artResponse:", artResponse.data.count)
         self?.artworks = artResponse.data
-        print("👀 first art id: ", artResponse.data.first?.imageID)
+        self?.resourcePath = artResponse.resourcePath
       case .failure(let error):
         print("👀 artResponse error:", error.localizedDescription)
       }
+      self?.loading = false
     }
+  }
+  
+  func artworkImageURL(withID id: Artwork.ID) -> URL? {
+    guard let imageID = artworks.first(where: { $0.id == id})?.imageID, let resourcesPath = resourcePath else { return nil }
+    let urlString = "\(resourcesPath.iiifURL)/\(imageID)/full/130,/0/default.jpg"
+    return URL(string: urlString)
   }
   
 }
@@ -39,29 +54,51 @@ final class HomeViewModel: ObservableObject {
 struct ContentView: View {
   @StateObject var viewModel = HomeViewModel()
   
+  init() {
+    UITableView.appearance().showsVerticalScrollIndicator = false
+  }
+  
   var body: some View {
-    Color.Background.accent
-      .overlay(
-        VStack {
-          Text(viewModel.items[0])
-            .padding()
-          List {
-            ForEach(viewModel.artworks) { art in
-              HStack {
-                if let url = art.imageURL {
-                  ArtThumbView(url: url)
-                    .frame(width: 34, height: 34)
-                }
-                Text(art.title)
+    NavigationView {
+      List {
+        ForEach(viewModel.artworks.filter { $0.imageID != nil}) { art in
+          HStack(alignment: .top, spacing: 16) {
+            if let url = viewModel.artworkImageURL(withID: art.id) {
+              ArtThumbView(url: url)
+                .frame(width: 100, height: 100)
+                .padding()
+                .background(Color.Background.blackLight)
+                .cornerRadius(8)
+            }
+            VStack(alignment: .leading, spacing: 0) {
+              Text(art.title)
+                .font(.callout)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+              if let artist = art.artistTitle {
+                Text(artist)
+                  .font(.callout)
+                  .fontWeight(.semibold)
               }
+              Spacer()
+              Text(art.title)
+                .font(.subheadline)
+                .fontWeight(.light)
             }
           }
-          .padding(.horizontal)
-          .refreshable {
-            viewModel.getArtworks()
-          }
+          .padding()
+          .background(Color.Background.primary)
+          .cornerRadius(12)
+          .padding(.vertical, 8)
+          .redacted(reason: viewModel.loading ? .placeholder : [])
         }
-      )
+        .listRowSeparator(.hidden)
+      }
+      .refreshable {
+        viewModel.reloadArtworks()
+      }
+      .navigationBarTitle("Articulage")
+    }
   }
 }
 
@@ -71,21 +108,16 @@ struct ContentView_Previews: PreviewProvider {
   }
 }
 
-
+import SDWebImageSwiftUI
 struct ArtThumbView: View {
   let url: URL
   
   var body: some View {
-    AsyncImage(url: url) { image in
-      image
-        .resizable()
-        .scaledToFit()
-    } placeholder: {
-      Color.Background.accent.opacity(0.3)
-        .cornerRadius(24)
-        .opacity(0.1)
-        .overlay(ProgressView())
-    }
-
+    WebImage(url: url)
+      .resizable()
+      .indicator(.activity)
+      .transition(.fade(duration: 0.5))
+      .scaledToFit()
+      .cornerRadius(8)
   }
 }

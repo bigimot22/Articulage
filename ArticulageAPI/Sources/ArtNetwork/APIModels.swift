@@ -9,22 +9,33 @@ import Foundation
 
 public struct ArtResponse: Decodable {
   public var data: [Artwork]
+  public let resourcePath: ResourcePath
+  
+  enum CodingKeys: String, CodingKey {
+      case data
+      case resourcePath = "config"
+  }
+}
+
+public struct ResourcePath: Codable {
+  public let iiifURL: String
+  public let websiteURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case iiifURL = "iiif_url"
+        case websiteURL = "website_url"
+    }
 }
 
 public struct Artwork: Codable, Identifiable {
   public let id: Int
   public let title: String
-  public let thumbnail: Thumbnail
-  public let imageID: String
-  
-  public var imageURL: URL? {
-  //https://www.artic.edu/iiif/2/0330a6dd-774e-eff1-0073-2be5f85b81d0/full/130,/0/default.jpg
-    let UrlString = "https://www.artic.edu/iiif/2/\(imageID)/full/130,/0/default.jpg"
-    return URL(string: UrlString)
-  }
+  public let imageID: String?
+  public let artistTitle: String?
   
   enum CodingKeys: String, CodingKey {
-    case id, title, thumbnail
+    case id, title
+    case artistTitle = "artist_title"
     case imageID = "image_id"
   }
 }
