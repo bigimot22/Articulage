@@ -18,7 +18,6 @@ final class HomeViewModel: ObservableObject {
   
   init(service: Networkable = NetworkService()) {
     self.service = service
-    service.fetchSample()
     getArtworks()
   }
   
@@ -31,7 +30,7 @@ final class HomeViewModel: ObservableObject {
   
   func getArtworks() {
     loading = true
-    service.fetch(ArtResponse.self, from: .artworks) { [weak self] result in
+    service.fetch(ArtResponse.self, from: ArtEndPoint.artworks) { [weak self] result in
       switch result {
       case .success(let artResponse):
         self?.artworks = artResponse.data
@@ -72,7 +71,7 @@ struct ContentView: View {
             }
             VStack(alignment: .leading, spacing: 0) {
               Text(art.title)
-                .font(.callout)
+                .font(.title3)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
               if let artist = art.artistTitle {
@@ -80,10 +79,19 @@ struct ContentView: View {
                   .font(.callout)
                   .fontWeight(.semibold)
               }
+              if let provenance = art.provenanceDescription {
+                Text(provenance)
+                  .font(.callout)
+                  .fontWeight(.light)
+                  .truncationMode(.tail)
+                  .frame(maxHeight: 80)
+                  .padding(.vertical)
+              }
               Spacer()
-              Text(art.title)
+              Text(art.displayYear)
                 .font(.subheadline)
-                .fontWeight(.light)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .trailing)
             }
           }
           .padding()

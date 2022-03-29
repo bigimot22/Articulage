@@ -23,7 +23,6 @@ func log(_ objects: Any...) -> () {
 
 
 public protocol Networkable {
-  func fetchSample() -> Void
   func fetch<T: Decodable>(_ modelType: T.Type, from endpoint: EndPoint, completion: @escaping (Result<T, RequestError>) -> Void)
 }
 
@@ -32,10 +31,6 @@ public final class NetworkService: Networkable {
   
   public init(urlSession: URLSession = .shared) {
     self.session = urlSession
-  }
-  
-  public func fetchSample() {
-    print("👀 fetched items", Date())
   }
   
   public func fetch<T: Decodable>(_ modelType: T.Type, from endpoint: EndPoint, completion: @escaping (Result<T, RequestError>) -> Void) {

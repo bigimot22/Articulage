@@ -51,6 +51,7 @@ public extension Color {
   enum System {
     public static let silver = Color("Colors/silver", bundle: .module)
     public static let gray6 = Color("Colors/gray6", bundle: .module)
+    public static let indigo = Color.indigo
   }
   
   enum Text {
