@@ -1,5 +1,5 @@
 <!-- HEADER -->
-<img src="./Images/petulia-icon-128.png" width="60" align="right"/>
+<img src="./Screenshots/articulage-icon.png" width="60" align="right"/>
 <h1>Articulage - The Art Of The Package</h1>
 
 <!-- PROJECT SHIELDS -->
