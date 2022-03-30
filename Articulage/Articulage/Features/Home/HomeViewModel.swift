@@ -12,6 +12,7 @@ import Utilities
 import ArtNetwork
 final class HomeViewModel: ObservableObject {
   @Published private(set) var artworks: [Artwork] = []
+  @Published private(set) var pagination:  Pagination?
   @Published private(set) var  loading = false
   
   private var service: Networkable
@@ -36,6 +37,7 @@ final class HomeViewModel: ObservableObject {
       case .success(let artResponse):
         self?.artworks = artResponse.data
         self?.resourcePath = artResponse.resourcePath
+        self?.pagination = artResponse.pagination
       case .failure(let error):
         log("👀 artResponse error:", error.localizedDescription)
       }
@@ -47,5 +49,30 @@ final class HomeViewModel: ObservableObject {
     guard let imageID = artworks.first(where: { $0.id == id})?.imageID, let resourcesPath = resourcePath else { return nil }
     let urlString = "\(resourcesPath.iiifURL)/\(imageID)/full/\(size.stringValue),/0/default.jpg"
     return URL(string: urlString)
+  }
+  
+  func loadArtworksPage(after lastID: Artwork.ID) {
+    
+    guard lastID == artworks.last?.id, let pagination = pagination, pagination.currentPage < pagination.totalPages else {
+      return
+    }
+
+    let page = (pagination.currentPage + 1).description
+    var endPoint = ArtEndPoint.artworks
+    endPoint.queryItems = [URLQueryItem(name: "page", value: page)]
+    
+    loading = true
+    service.fetch(ArtResponse.self, from: endPoint) { [weak self] result in
+      switch result {
+      case .success(let artResponse):
+        self?.artworks.append(contentsOf: artResponse.data)
+        self?.resourcePath = artResponse.resourcePath
+        self?.pagination = artResponse.pagination
+      case .failure(let error):
+        log("👀 artResponse error:", error.localizedDescription)
+      }
+      self?.loading = false
+    }
+    
   }
 }

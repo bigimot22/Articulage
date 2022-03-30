@@ -24,6 +24,9 @@ struct HomeScreen: View {
             .background(Color.Background.primary)
             .cornerRadius(12)
             .padding(.vertical, 8)
+            .onAppear {
+              viewModel.loadArtworksPage(after: artwork.id)
+            }
         }
         .redacted(reason: viewModel.loading ? .placeholder : [])
         .listRowSeparator(.hidden)

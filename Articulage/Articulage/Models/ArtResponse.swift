@@ -13,12 +13,26 @@ public struct ArtDetailResponse: Decodable {
 
 public struct ArtResponse: Decodable {
   public var data: [Artwork]
+  let pagination: Pagination
   public let resourcePath: ResourcePath
   
   enum CodingKeys: String, CodingKey {
-      case data
+      case data, pagination
       case resourcePath = "config"
   }
+}
+
+struct Pagination: Codable {
+    let total, limit, offset, totalPages: Int
+    let currentPage: Int
+    let nextURL: String
+
+    enum CodingKeys: String, CodingKey {
+        case total, limit, offset
+        case totalPages = "total_pages"
+        case currentPage = "current_page"
+        case nextURL = "next_url"
+    }
 }
 
 public struct ResourcePath: Codable {
