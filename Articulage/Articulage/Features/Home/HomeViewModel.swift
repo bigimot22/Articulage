@@ -14,6 +14,7 @@ final class HomeViewModel: ObservableObject {
   @Published private(set) var artworks: [Artwork] = []
   @Published private(set) var pagination:  Pagination?
   @Published private(set) var  loading = false
+  @Published private(set) var  showLoadingRow = false
   
   private var service: Networkable
   private var resourcePath: ResourcePath?
@@ -56,22 +57,26 @@ final class HomeViewModel: ObservableObject {
     guard lastID == artworks.last?.id, let pagination = pagination, pagination.currentPage < pagination.totalPages else {
       return
     }
-
+    guard !showLoadingRow else { return }
+    
     let page = (pagination.currentPage + 1).description
     var endPoint = ArtEndPoint.artworks
     endPoint.queryItems = [URLQueryItem(name: "page", value: page)]
     
-    loading = true
+    showLoadingRow = true
     service.fetch(ArtResponse.self, from: endPoint) { [weak self] result in
-      switch result {
-      case .success(let artResponse):
-        self?.artworks.append(contentsOf: artResponse.data)
-        self?.resourcePath = artResponse.resourcePath
-        self?.pagination = artResponse.pagination
-      case .failure(let error):
-        log("👀 artResponse error:", error.localizedDescription)
+      DispatchQueue.main.asyncAfter(deadline: .now() + 2) { // time for animations if fetch is too quick
+        switch result {
+        case .success(let artResponse):
+          self?.artworks.append(contentsOf: artResponse.data)
+          self?.resourcePath = artResponse.resourcePath
+          self?.pagination = artResponse.pagination
+        case .failure(let error):
+          log("👀 artResponse error:", error.localizedDescription)
+        }
+        self?.showLoadingRow = false
+        self?.loading = false
       }
-      self?.loading = false
     }
     
   }

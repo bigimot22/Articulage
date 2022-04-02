@@ -24,6 +24,8 @@ struct HomeScreen: View {
             .background(Color.Background.primary)
             .cornerRadius(12)
             .padding(.vertical, 8)
+            .redacted(reason: needsLoadingRow(artwork.id) ? .placeholder : [])
+            .higlighted(needsLoadingRow(artwork.id))
             .onAppear {
               viewModel.loadArtworksPage(after: artwork.id)
             }
@@ -36,6 +38,10 @@ struct HomeScreen: View {
       }
       .navigationBarTitle("Articulage")
     }
+  }
+  
+  private func needsLoadingRow(_ artworkID: Artwork.ID) -> Bool {
+    viewModel.artworks.last?.id == artworkID && viewModel.showLoadingRow
   }
 }
 

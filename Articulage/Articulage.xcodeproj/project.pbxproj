@@ -22,6 +22,7 @@
 		2919B8D227F32DE400B957C8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8D127F32DE300B957C8 /* HomeViewModel.swift */; };
 		2919B8D427F32E7800B957C8 /* ArtThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8D327F32E7800B957C8 /* ArtThumbView.swift */; };
 		2919B8D627F3357000B957C8 /* ArtListCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2919B8D527F3357000B957C8 /* ArtListCard.swift */; };
+		299AFD6827F842FC0044FC98 /* Hightlighted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299AFD6727F842FC0044FC98 /* Hightlighted.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		2919B8D127F32DE300B957C8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		2919B8D327F32E7800B957C8 /* ArtThumbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtThumbView.swift; sourceTree = "<group>"; };
 		2919B8D527F3357000B957C8 /* ArtListCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListCard.swift; sourceTree = "<group>"; };
+		299AFD6727F842FC0044FC98 /* Hightlighted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hightlighted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 		2919B8D927F33A6600B957C8 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				299AFD6627F842DC0044FC98 /* Modifiers */,
 				2919B8D727F339B300B957C8 /* Home */,
 				2919B8D827F33A0000B957C8 /* Reusable Views */,
 			);
@@ -144,6 +147,14 @@
 				2919B8B327F19E7000B957C8 /* Assets.xcassets */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		299AFD6627F842DC0044FC98 /* Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				299AFD6727F842FC0044FC98 /* Hightlighted.swift */,
+			);
+			path = Modifiers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,6 +240,7 @@
 				2919B8C827F3108B00B957C8 /* Artwork.swift in Sources */,
 				2919B8D227F32DE400B957C8 /* HomeViewModel.swift in Sources */,
 				2919B8CA27F3110400B957C8 /* ArtResponse.swift in Sources */,
+				299AFD6827F842FC0044FC98 /* Hightlighted.swift in Sources */,
 				2919B8CC27F312C800B957C8 /* ArtEndPoint.swift in Sources */,
 				2919B8B027F19E6E00B957C8 /* ArticulageApp.swift in Sources */,
 				2919B8D627F3357000B957C8 /* ArtListCard.swift in Sources */,

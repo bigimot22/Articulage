@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Utilities
 
 public protocol Networkable {
   func fetch<T: Decodable>(_ modelType: T.Type, from endpoint: EndPoint, completion: @escaping (Result<T, RequestError>) -> Void)
@@ -19,6 +20,7 @@ public final class NetworkService: Networkable {
   }
   
   public func fetch<T: Decodable>(_ modelType: T.Type, from endpoint: EndPoint, completion: @escaping (Result<T, RequestError>) -> Void) {
+    log("\n🌐 Fetching from url:", endpoint.url)
     let method = RequestMethod.get
     var request = URLRequest(url: endpoint.url)
     request.httpMethod = method.rawValue
